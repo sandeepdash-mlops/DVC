@@ -19,3 +19,26 @@
 12. Then git add-commit-push (we're saving V2 of our data at this point)
 13. Check dvc/git status, everything should be upto date.
 14. Now repeat step 10-12 for v3 of data.
+
+   View commit history in short format
+git log --oneline
+
+   Checkout a specific commit by its hash (e.g., to roll back to a previous version)
+git checkout <commit-hash>
+
+   Now you're on the code state of that specific commit
+   Run this to pull the corresponding data tracked by DVC
+dvc pull
+
+   To go back to the latest commit on the main branch
+git checkout main
+
+   Pull the data for the latest version of the code
+dvc pull
+
+
+  
+
+Note:
+DVC is not limited to versioning .csv or .xlsx files — it can track any kind of data artifact, including .json files, model binaries, images, or even serialized Python objects (like dictionaries saved as .pkl, .json, or .npy).
+As long as you tell DVC to track a file using dvc add, dvc run, or dvc.yaml, it will manage versioning and storage automatically.
